@@ -1,0 +1,29 @@
+/*
+ * @Author: yxd
+ * @Date: 2023-03-03 13:19:34
+ * @LastEditors: yxd777 792164257@qq.com
+ * @LastEditTime: 2023-03-03 13:19:40
+ * @Description:
+ */
+export enum ConfigEnum {
+  DB_TYPE = 'DB_TYPE',
+  DB_HOST = 'DB_HOST',
+  DB_PORT = 'DB_PORT',
+  DB_DATABASE = 'DB_DATABASE',
+  DB_USERNAME = 'DB_USERNAME',
+  DB_PASSWORD = 'DB_PASSWORD',
+  DB_SYNC = 'DB_SYNC',
+
+  SECRET = 'SECRET',
+
+  REDIS_HOST = 'REDIS_HOST',
+  REDIS_PORT = 'REDIS_PORT',
+  REDIS_PASSWORD = 'REDIS_PASSWORD',
+  REDIS_RECONNECT = 'REDIS_RECONNECT',
+}
+
+export enum LogEnum {
+  LOG_LEVEL = 'LOG_LEVEL',
+  LOG_ON = 'LOG_ON',
+  TIMESTAMP = 'TIMESTAMP',
+}
