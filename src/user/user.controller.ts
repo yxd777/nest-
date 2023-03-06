@@ -2,7 +2,7 @@
  * @Author: yxd
  * @Date: 2023-03-03 12:57:48
  * @LastEditors: yxd777 792164257@qq.com
- * @LastEditTime: 2023-03-03 17:17:22
+ * @LastEditTime: 2023-03-06 12:22:44
  * @Description:
  */
 import {
@@ -13,19 +13,24 @@ import {
   Patch,
   Param,
   Delete,
+  LoggerService,
+  Inject,
 } from '@nestjs/common';
 import { UserService } from './user.service';
-import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
 import { ConfigService } from '@nestjs/config';
 import { ConfigEnum } from '../enum/config.enum';
 import { User } from './entities/user.entity';
+import { WINSTON_MODULE_NEST_PROVIDER } from 'nest-winston';
 
 @Controller('user')
 export class UserController {
+  // private logger = new Logger(UserController.name);
   constructor(
     private readonly userService: UserService,
     private configService: ConfigService,
+    @Inject(WINSTON_MODULE_NEST_PROVIDER)
+    private readonly logger: LoggerService,
   ) {}
 
   @Post()
