@@ -2,7 +2,7 @@
  * @Author: yxd
  * @Date: 2023-03-03 12:33:50
  * @LastEditors: yxd777 792164257@qq.com
- * @LastEditTime: 2023-03-06 15:02:41
+ * @LastEditTime: 2023-03-06 15:30:21
  * @Description:
  */
 import { Global, Logger, Module } from '@nestjs/common';
@@ -12,7 +12,7 @@ import * as dotenv from 'dotenv';
 
 import { UserModule } from './user/user.module';
 import { LogsModule } from './logs/logs.module';
-import ormconfig from '../ormconfig';
+import { connectionParams } from '../ormconfig';
 
 const envFilePath = `.env.${process.env.NODE_ENV || `development`}`;
 @Global()
@@ -23,7 +23,7 @@ const envFilePath = `.env.${process.env.NODE_ENV || `development`}`;
       envFilePath,
       load: [() => dotenv.config({ path: '.env' })],
     }),
-    TypeOrmModule.forRoot(ormconfig),
+    TypeOrmModule.forRoot(connectionParams),
     UserModule,
     LogsModule,
   ],
